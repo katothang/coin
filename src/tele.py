@@ -1,7 +1,7 @@
 import json 
 import requests
 
-TOKEN = "5399039858:AAGn6Ak5kQfB9QOKGPm63QxFbknF_NXGIHE"
+TOKEN = "5447920895:AAG-6RLAgjj7Ejly1P8XvUTItof984f4pBg"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 
@@ -34,5 +34,14 @@ def send_message(text, chat_id):
     get_url(url)
     
 
-text, chat = get_last_chat_id_and_text(get_updates())
-send_message("HUHU", chat)
+def main():
+    last_textchat = (None, None)
+    while True:
+        text, chat = get_last_chat_id_and_text(get_updates())
+        if (text, chat) != last_textchat:
+            send_message(text, chat)
+            last_textchat = (text, chat)
+        time.sleep(0.5)
+
+if __name__ == '__main__':
+    main()
