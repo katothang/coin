@@ -6,11 +6,15 @@ URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 API_PRICE="https://api.binance.com/api/v1/ticker/price?symbol={}"
 API_24H="https://api.binance.com/api/v1/ticker/24hr?symbol={}"
 def get_biance_price(coinName):
-    url = requests.get(API_24H.format(coinName+'USDT'))
+    coinName = coinName.upper()+'USDT'.upper()
+    url = requests.get(API_24H.format(coinName))
+    print(coinName)
     data = url.json()
-    return data
+    if "code" in data:
+        return "Mã coin không tồn tại.!"
+    print(data)
+    return "Giá hiện tại {} Phần trăm thay đổi {}% ".format(data["lastPrice"], data["priceChangePercent"])
 
-data = get_biance_price('SHIB')
-print(data["lastPrice"])
+
 
 
