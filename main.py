@@ -1,7 +1,5 @@
 import sys 
 import os
-import sched
-sys.path.append(os.path.abspath("src/"))
 from coin import *
 from tele import *
 
