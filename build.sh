@@ -2,4 +2,4 @@ docker rmi -f $(docker images -aq)
 docker rm -f $(docker ps -a -q)
 docker rmi coin
 docker image build -t coin /root/coin
-docker run coin
+docker run -d -p 80:80 coin
