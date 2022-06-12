@@ -26,7 +26,7 @@ def get_biance_price_auto(coinName):
     if "code" in data:
         return ""
     if float(data["priceChangePercent"]) > 10 or float(data["priceChangePercent"]) < -10:
-        return "({}) Giá hiện tại {} Phần trăm thay đổi {}% ".format(coinNamePrintdata["lastPrice"], data["priceChangePercent"])
+        return "({}) Giá hiện tại {} Phần trăm thay đổi {}% ".format(coinNamePrint,data["lastPrice"], data["priceChangePercent"])
     return ""
 
 def get_list_coin_price(isAuto):
