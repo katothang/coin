@@ -9,6 +9,7 @@ def getPriceCoin():
     while True:
         try:
             text, chat = get_last_chat_id_and_text(get_updates())
+            print(len(text) < 10)
             if (text, chat) != last_textchat and len(text) < 10:
                 send_message(get_biance_price(text), chat)
                 last_textchat = (text, chat)
@@ -23,11 +24,9 @@ def getPriceCoinAuto():
         time.sleep(600)
 
 def main():
-    thread = Thread(target = getPriceCoinAuto)
-    thread.start()
-    thread.join()
+    Thread(target = getPriceCoinAuto).start()
+    Thread(target = getPriceCoin).start()
 
-    getPriceCoin()
-
+    
 if __name__ == '__main__':
     main()
