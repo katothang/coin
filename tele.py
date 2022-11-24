@@ -1,7 +1,7 @@
 import json 
 import requests
 import time
-TOKEN = "5447920895:AAG-6RLAgjj7Ejly1P8XvUTItof984f4pBg"
+TOKEN = "5920369034:AAEChZbEVf_w33YEc6yApBPKQ-4qFp23wsM" # token lúc tạo bot
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 
